@@ -16,7 +16,7 @@ var client = new RestClient(options);
 var request = new RestRequest($"/v1/exchangerate/{asset_id_base}");
 request.AddHeader("X-CoinAPI-Key", "11CA632B-F6B4-419E-8E88-65246C594C97");
 // This GetAsync<T> is the Model class that will be automatic deserialized
-var requestDeserialized = await client.GetAsync<ModelRequest>(request);
+var requestDeserialized = await client.GetAsync<GetExchangeRateModel>(request);
 
 // Verifying null response
 if (requestDeserialized.rates == null)
