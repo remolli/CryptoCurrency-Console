@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptoCurrency_Console
+namespace CryptoCurrency_Console.Models
 {
     public class ModelRequest
     {
