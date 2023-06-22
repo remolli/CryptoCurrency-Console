@@ -53,9 +53,10 @@ foreach (var item in requestDeserialized.rates)
          quote == "EUR" || quote == "USD" || quote == "JPY" || quote == "GBP" || quote == "BRL"
         )
     {
-        Console.WriteLine(item.asset_id_quote);
-        Console.WriteLine(item.time);
-        Console.WriteLine(item.rate);
+        Console.WriteLine("Quote: " + item.asset_id_quote);
+        Console.WriteLine("Rate: " + item.rate);
+        Console.WriteLine("Time: " + item.time);
+        Console.WriteLine();
         Console.WriteLine(new string('-', 30));
     }
 }
