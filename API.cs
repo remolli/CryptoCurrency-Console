@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace CryptoCurrency_Console
 {
-    public class Request
+    public class API
     {
         RestClient client;
-        public Request()
+        public API()
         {
             var options = new RestClientOptions("https://rest.coinapi.io");
             client = new RestClient(options);

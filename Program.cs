@@ -1,4 +1,5 @@
-﻿using CryptoCurrency_Console.Models;
+﻿using CryptoCurrency_Console;
+using CryptoCurrency_Console.Models;
 using RestSharp;
 
 // HUD
@@ -11,12 +12,9 @@ Console.Write("Insert an 'asset id base': ");
 string asset_id_base = Console.ReadLine();
 
 // Request
-var options = new RestClientOptions("https://rest.coinapi.io");
-var client = new RestClient(options);
-var request = new RestRequest($"/v1/exchangerate/{asset_id_base}");
-request.AddHeader("X-CoinAPI-Key", "11CA632B-F6B4-419E-8E88-65246C594C97");
-// This GetAsync<T> is the Model class that will be automatic deserialized
-var requestDeserialized = await client.GetAsync<GetExchangeRateModel>(request);
+API api = new API();
+api.GetExchangeRateAsync(asset_id_base);
+var requestDeserialized = await api.GetExchangeRateAsync(asset_id_base);
 
 // Verifying null response
 if (requestDeserialized.rates == null)
