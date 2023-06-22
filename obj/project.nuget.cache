@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "I3uRBanKFfDHgxlWgO276VpaUGV2Pyd21ciwPzUMaxyhmN3VOhwy1PhE3UHLuH3kvIx07JbJJIDSCN2RY87SAg==",
+  "dgSpecHash": "tVgGoJo4OcIjZnFlQK6NnMKBCGpCrw9rxO1qGdTMfxWN7tMvVzogHIetctAnoSicNnTaQl9H9sdEXzGYEnnSZw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Win10\\Desktop\\GITHUB\\CryptoCurrency-Console\\CryptoCurrency-Console.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Win10\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
+    "C:\\Users\\Win10\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\Win10\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
