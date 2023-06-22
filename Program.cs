@@ -3,8 +3,10 @@ using CryptoCurrency_Console.Models;
 using RestSharp;
 
 // HUD
+Console.ForegroundColor = ConsoleColor.Cyan;
 Console.WriteLine("Welcome to CryptoCurrency");
 Console.WriteLine();
+Console.ForegroundColor = ConsoleColor.Yellow;
 Console.WriteLine("Types of an asset id base");
 Console.WriteLine("""
                   
@@ -18,7 +20,9 @@ Console.WriteLine("""
                   
                   """);
 Console.WriteLine();
+Console.ForegroundColor = ConsoleColor.Magenta;
 Console.Write("Insert an 'asset id base': ");
+Console.ForegroundColor = ConsoleColor.Green;
 // Base crypto for request
 string asset_id_base = Console.ReadLine();
 
@@ -30,15 +34,18 @@ var requestDeserialized = await api.GetExchangeRateAsync(asset_id_base);
 // Verifying null response
 if (requestDeserialized.rates == null)
 {
+    Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine();
     Console.WriteLine("Null rates");
     Console.WriteLine("Exiting...");
+    Console.ResetColor();
     Environment.Exit(0);
 }
 
 // View
 Console.WriteLine();
-Console.WriteLine(requestDeserialized.asset_id_base);
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine("Asset ID base: " + requestDeserialized.asset_id_base);
 
 foreach (var item in requestDeserialized.rates)
 {
@@ -53,10 +60,13 @@ foreach (var item in requestDeserialized.rates)
          quote == "EUR" || quote == "USD" || quote == "JPY" || quote == "GBP" || quote == "BRL"
         )
     {
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("Quote: " + item.asset_id_quote);
         Console.WriteLine("Rate: " + item.rate);
         Console.WriteLine("Time: " + item.time);
         Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine(new string('-', 30));
     }
 }
+Console.ResetColor();
