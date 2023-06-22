@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CryptoCurrency_Console.Models
 {
-    public class ModelRequest
+    public class GetExchangeRateModel
     {
         public string asset_id_base { get; set; }
         public RateUnit[] rates { get; set; }
