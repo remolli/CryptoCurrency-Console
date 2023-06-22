@@ -28,19 +28,19 @@ if (requestDeserialized.rates == null)
 }
 
 // View
+Console.WriteLine();
 Console.WriteLine(requestDeserialized.asset_id_base);
-int i = 0;
+
 foreach (var item in requestDeserialized.rates)
 {
-    Console.WriteLine(item.asset_id_quote);
-    Console.WriteLine(item.time);
-    Console.WriteLine(item.rate);
-    Console.WriteLine(new string('-', 30));
-    
-    // i = number of convertions
-    if (i == 5)
+    string quote = item.asset_id_quote;
+
+    // quote is the curency acronym rate
+    if (quote == "USD" || quote == "EUR")
     {
-        break;
+        Console.WriteLine(item.asset_id_quote);
+        Console.WriteLine(item.time);
+        Console.WriteLine(item.rate);
+        Console.WriteLine(new string('-', 30));
     }
-    i++;
 }
