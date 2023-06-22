@@ -5,7 +5,18 @@ using RestSharp;
 // HUD
 Console.WriteLine("Welcome to CryptoCurrency");
 Console.WriteLine();
-Console.WriteLine("asset id base => BTC ");
+Console.WriteLine("Types of an asset id base");
+Console.WriteLine("""
+                  
+                  Crypto:
+                  BTC (bitcoin)   ETH (etherium)   BNB (BNB)
+                  USDT (tether)   USDC (USD Coin)
+
+                  Coin:
+                  EUR (euro)   USD (dolar)   JPY (japanese yen)
+                  GBP (pound sterling)   BRL (brazilian real)
+                  
+                  """);
 Console.WriteLine();
 Console.Write("Insert an 'asset id base': ");
 // Base crypto for request
@@ -34,7 +45,13 @@ foreach (var item in requestDeserialized.rates)
     string quote = item.asset_id_quote;
 
     // quote is the curency acronym rate
-    if (quote == "USD" || quote == "EUR")
+    if (
+         // CRYPTO
+         quote == "BTC" || quote == "ETH" || quote == "BNB" || quote == "USDT" || quote == "USDC" ||
+
+         // COIN
+         quote == "EUR" || quote == "USD" || quote == "JPY" || quote == "GBP" || quote == "BRL"
+        )
     {
         Console.WriteLine(item.asset_id_quote);
         Console.WriteLine(item.time);
