@@ -16,3 +16,4 @@ C:\Users\Win10\Desktop\GITHUB\CryptoCurrency-Console\obj\Debug\net7.0\refint\Cry
 C:\Users\Win10\Desktop\GITHUB\CryptoCurrency-Console\obj\Debug\net7.0\CryptoCurrency-Console.pdb
 C:\Users\Win10\Desktop\GITHUB\CryptoCurrency-Console\obj\Debug\net7.0\CryptoCurrency-Console.genruntimeconfig.cache
 C:\Users\Win10\Desktop\GITHUB\CryptoCurrency-Console\obj\Debug\net7.0\ref\CryptoCurrency-Console.dll
+C:\Users\Win10\Desktop\GITHUB\CryptoCurrency-Console\bin\Debug\net7.0\Newtonsoft.Json.dll
