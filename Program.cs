@@ -2,71 +2,61 @@
 using CryptoCurrency_Console.Models;
 using RestSharp;
 
-// HUD
-Console.ForegroundColor = ConsoleColor.Cyan;
-Console.WriteLine("Welcome to CryptoCurrency");
-Console.WriteLine();
-Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("Types of an asset id base");
-Console.WriteLine("""
-                  
-                  Crypto:
-                  BTC (bitcoin)   ETH (etherium)   BNB (BNB)
-                  USDT (tether)   USDC (USD Coin)
-
-                  Coin:
-                  EUR (euro)   USD (dolar)   JPY (japanese yen)
-                  GBP (pound sterling)   BRL (brazilian real)
-                  
-                  """);
-Console.WriteLine();
-Console.ForegroundColor = ConsoleColor.Magenta;
-Console.Write("Insert an 'asset id base': ");
-Console.ForegroundColor = ConsoleColor.Green;
-// Base crypto for request
-string asset_id_base = Console.ReadLine();
-
-// Request
 API api = new API();
-api.GetExchangeRateAsync(asset_id_base);
-var requestDeserialized = await api.GetExchangeRateAsync(asset_id_base);
+var response = await api.GetSymbolsAsync();
 
-// Verifying null response
-if (requestDeserialized.rates == null)
+foreach (var item in response)
 {
+    string base_counter = item.Key;
+    GetSymbolModel model = item.Value;
+
+    Console.WriteLine();
+    Console.WriteLine(base_counter);
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine(model.base_currency);
+    Console.WriteLine(model.base_currency_scale);
+    Console.WriteLine(model.counter_currency);
+    Console.WriteLine(model.counter_currency_scale);
+    Console.WriteLine(model.min_price_increment);
+    Console.WriteLine(model.min_price_increment_scale);
+    Console.WriteLine(model.min_order_size);
+    Console.WriteLine(model.min_order_size_scale);
+    Console.WriteLine(model.max_order_size);
+    Console.WriteLine(model.max_order_size_scale);
+    Console.WriteLine(model.lot_size);
+    Console.WriteLine(model.lot_size_scale);
+    Console.WriteLine(model.status);
+    Console.WriteLine(model.id);
+    Console.WriteLine(model.auction_price);
+    Console.WriteLine(model.auction_size);
+    Console.WriteLine(model.auction_time);
+    Console.WriteLine(model.imbalance);
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine();
-    Console.WriteLine("Null rates");
-    Console.WriteLine("Exiting...");
-    Console.ResetColor();
-    Environment.Exit(0);
+    Console.WriteLine(new string('-', 30));
+    Console.WriteLine(new string('/', 30));
+    Console.WriteLine(new string('-', 30));
 }
 
-// View
-Console.WriteLine();
-Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("Asset ID base: " + requestDeserialized.asset_id_base);
-
-foreach (var item in requestDeserialized.rates)
-{
-    string quote = item.asset_id_quote;
-
-    // quote is the curency acronym rate
-    if (
-         // CRYPTO
-         quote == "BTC" || quote == "ETH" || quote == "BNB" || quote == "USDT" || quote == "USDC" ||
-
-         // COIN
-         quote == "EUR" || quote == "USD" || quote == "JPY" || quote == "GBP" || quote == "BRL"
-        )
-    {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("Quote: " + item.asset_id_quote);
-        Console.WriteLine("Rate: " + item.rate);
-        Console.WriteLine("Time: " + item.time);
-        Console.WriteLine();
-        Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        Console.WriteLine(new string('-', 30));
-    }
-}
 Console.ResetColor();
+
+
+
+
+
+
+//var responser = await api.GetTickersAsync();
+
+//foreach (var item in responser)
+//{
+//    Console.WriteLine();
+//    Console.WriteLine(item.symbol);
+//    Console.WriteLine(item.price_24h);
+//    Console.WriteLine(item.volume_24h);
+//    Console.WriteLine(item.last_trade_price);
+
+//    Console.WriteLine();
+//    Console.WriteLine(new string('-', 30));
+//    Console.WriteLine(new string('/', 30));
+//    Console.WriteLine(new string('-', 30));
+//}
